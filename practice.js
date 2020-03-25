@@ -85,10 +85,9 @@ multiply(4, 3, function(answer) {
 });
 // Do not edit the code above.
 
-// multiply(4, 3, function(answer)) {
-//  return ("The answer is" (4 * 3) + answer)
-// }
-
+function multiply(num1, num2, answer){
+  return answer(num1 * num2)
+}
 
 ////////// PROBLEM 4 //////////
 
@@ -111,15 +110,13 @@ contains(names, "Colt", function(result) {
 });
 // Do not edit the code above.
 
-// contains(names, "Colt", funciton(result)) {
-  
-//  if(result === true) {
-//    console.log('he is in the array')
-//  } else {
-//    console.log('he is not in the array')
-//  }
-// }
-// cb(result ? true : false)
+function contains(arr, name, cb){
+  if(name === arr[0]){
+    return cb(true)
+  } else {
+    return cb(false)
+  }
+}
 ////////// PROBLEM 5 //////////
 
 /*
@@ -138,6 +135,17 @@ uniq(names, function(uniqArr) {
 });
 // Do not edit the code above.
 
+function uniq(arr, cb) {
+  for(i = 0; i < arr.length; i++){
+    for(j = i + 1; j < arr.length; j++){
+      if(arr[i] === arr[j]){
+        arr.splice(j,1)
+      }
+    }
+  }
+  return cb(arr)
+}
+
 ////////// PROBLEM 6 //////////
 
 /* 
@@ -153,6 +161,12 @@ each(names, function(item, indice) {
 });
 // Do not edit the code above.
 
+function each(arr, cb){
+  for(i = 0; i < arr.length; i++){
+    cb(arr[i], i)
+  }
+}
+
 ////////// PROBLEM 7 //////////
 
 /*
@@ -161,6 +175,15 @@ each(names, function(item, indice) {
 */
 
 // Code here
+
+function getUserById(users, id, cb){
+  for(i = 0; i < users.length; i++) {
+    if(id === users[i].id){
+      return cb(users[i])
+    }
+  }
+
+}
 
 // Do not edit the code below.
 var users = [
